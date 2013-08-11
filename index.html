@@ -9,17 +9,24 @@
 </head>
 <body>
 
-  <script type="text/x-handlebars" data-template-name="index">
+  <script type="text/x-handlebars">
 		<div class = "navbar">
 			<div class = "navbar-inner">
 				<a class = "brand" href="#">Bloggr</a>
 				<ul class = "nav">
 					<li><a href = '#'>Posts</a></li>
-					<li><a href = '#'>About</a></li>
+					<li>{{#linkTo 'about'}}About {{/linkTo}}</li>
 				</ul>
 			</div>
 		</div>
+		{{outlet}}
   </script>
+
+  <script type = "text/x-handlebars" id="about">
+		<div class='about'>
+			<p> Basic Template Woot  </p>
+		</div>
+	</script>
 
   <script src="js/libs/jquery-1.9.1.js"></script>
   <script src="js/libs/handlebars-1.0.0-rc.3.js"></script>
