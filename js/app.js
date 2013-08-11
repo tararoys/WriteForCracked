@@ -18,6 +18,17 @@ App.PostsRoute = Ember.Route.extend({
 	}
 });
 
+App.PostController = Ember.ObjectController.extend({
+	isEditing: false,
+	edit: function(){
+		this.set('isEditing', true);
+	
+	},
+	doneEditing: function(){
+		this.set('isEditing', false);
+	}
+});
+
 App.Post = DS.Model.extend({
 	title: DS.attr('string'),
   author: DS.attr('string'),
@@ -56,3 +67,10 @@ App.Post.FIXTURES = [{
 Ember.Handlebars.registerBoundHelper('date', function(date){
 	return moment(date).fromNow();
 });
+
+var showdown = new Showdown.converter();
+
+
+Ember.Handlebars.registerBoundHelper('markdown', function(input){
+	return new Ember.Handlebars.SafeString(showdown.makeHtml(input)); 
+});	
