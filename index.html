@@ -9,12 +9,12 @@
 </head>
 <body>
 
-  <script type="text/x-handlebars">
+  <script type="text/x-handlebars"> 
 		<div class = "navbar">
 			<div class = "navbar-inner">
 				<a class = "brand" href="#">Bloggr</a>
 				<ul class = "nav">
-					<li><a href = '#'>Posts</a></li>
+				<li>{{#linkTo 'posts'}}Posts {{/linkTo}}</li>
 					<li>{{#linkTo 'about'}}About {{/linkTo}}</li>
 				</ul>
 			</div>
@@ -28,6 +28,24 @@
 		</div>
 	</script>
 
+  <script type="text/x-handlebars" id="posts">
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <table class='table'>
+            <thead>
+              <tr><th>Recent Posts</th></tr>
+            </thead>
+            <tr><td>
+              <a href='#'>Title <small class='muted'>by Author</small></a>
+            </td></tr>
+          </table>
+        </div>
+        <div class="span9">
+        </div>
+      </div>
+    </div>
+  </script>
   <script src="js/libs/jquery-1.9.1.js"></script>
   <script src="js/libs/handlebars-1.0.0-rc.3.js"></script>
   <script src="js/libs/ember-1.0.0-master.js"></script>
