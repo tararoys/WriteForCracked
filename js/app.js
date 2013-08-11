@@ -10,6 +10,12 @@ App.Router.map(function() {
 	this.resource('about')
 });
 
+App.PostsRoute = Ember.Route.extend({
+	model: function(){
+		return App.Post.find();	
+	}
+});
+
 App.Post = DS.Model.extend({
 	title: DS.attr('string'),
   author: DS.attr('string'),
