@@ -53,7 +53,7 @@
 
   <script type="text/x-handlebars" id="post">
 	{{#if isEditing}}
-			Edit mode
+			{{partial 'post/edit'}}
 			<button {{action 'doneEditing'}}>Done</button>
 			{{else}}
 				<button {{action 'edit'}}>Edit</button>
@@ -67,6 +67,11 @@
 		<div class = "below-the-fold">
 			{{markdown extended}}
 		</div>
+	</script>
+	<script type="text/x-handlebars" id="post/_edit">
+		<p> {{view Ember.TextField valueBinding='title'}}</p>
+		<p>{{view Ember.TextArea valueBinding='intro'}}</p>
+		<p>{{view Ember.TextArea valueBinding='extended'}}</p>
 	</script>
 
   <script src="js/libs/jquery-1.9.1.js"></script>
