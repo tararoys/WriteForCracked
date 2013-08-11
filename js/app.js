@@ -12,6 +12,11 @@ App.Router.map(function() {
 	this.resource('about');
 });
 
+App.IndexRoute = Ember.Route.extend({
+	redirect: function(){
+		this.transitionTo('posts');
+	}
+});
 
 App.PostsRoute = Ember.Route.extend({
 	model: function(){
