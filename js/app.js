@@ -6,24 +6,31 @@ App.Store = DS.Store.extend({
 });
 
 App.Router.map(function() {
-  this.resource('posts', function() {
-		this.resource('factoid', { path: ':factoid_id'});
-	});
+  this.resource('articles');
 	this.resource('about');
 });
 
-App.IndexRoute = Ember.Route.extend({
-	redirect: function(){
-		this.transitionTo('posts');
+App.ArticlesRoute = Ember.Route.extend({
+	model: function (){
+		return App.Article.find();	
 	}
 });
 
-App.PostsRoute = Ember.Route.extend({
-	model: function(){
-		return App.Factoid.find();	
-	}
+App.Article = DS.Model.extend({
+	title: DS.attr('string')	
 });
 
+App.Article.FIXTURES = [{
+		id: 1,
+		title: "Creepy Clone Armies Capable of Untold Havoc"	
+	},{
+		id: 2,
+		title: "Weirdest things ever used as ink."
+		
+	}
+];
+
+/*
 App.FactoidController = Ember.ObjectController.extend({
 	isEditing: false,
 	edit: function(){
@@ -36,6 +43,7 @@ App.FactoidController = Ember.ObjectController.extend({
 });
 
 App.Factoid = DS.Model.extend({
+	article: DS.belongsTo('App.Article'),
 	title: DS.attr('string'),
   author: DS.attr('string'),
   intro: DS.attr('string'),
@@ -43,7 +51,6 @@ App.Factoid = DS.Model.extend({
   publishedAt: DS.attr('date'),
 	quote: DS.attr('string'),
 	source: DS.attr('string')
-
 });
 
 
@@ -73,7 +80,7 @@ Ember.Handlebars.registerBoundHelper('date', function(date){
 
 var showdown = new Showdown.converter();
 
-
 Ember.Handlebars.registerBoundHelper('markdown', function(input){
 	return new Ember.Handlebars.SafeString(showdown.makeHtml(input)); 
 });	
+*/
