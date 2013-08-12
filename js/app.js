@@ -12,7 +12,7 @@ App.Router.map(function() {
 
 App.ArticlesRoute = Ember.Route.extend({
 	model: function (){
-		return App.Article.find();	
+	 return	App.Article.find();	
 	}
 });
 
