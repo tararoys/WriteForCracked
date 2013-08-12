@@ -38,16 +38,21 @@
             </thead>
 						{{#each model}}
             <tr><td>
-				    <a href='#'>		{{title}}</a>
+				    {{#linkTo 'article' this}}		{{title}}{{/linkTo}}
             </td></tr>
 						{{/each}}
           </table>
         </div>
         <div class="span9">
+					{{outlet}}
         </div>
       </div>
     </div>
   </script>
+
+	<script type="text/x-handlebars" id="article">
+		{{title}}
+	</script>
 
 
   <script src="js/libs/jquery-1.9.1.js"></script>

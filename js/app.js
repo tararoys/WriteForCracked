@@ -6,7 +6,9 @@ App.Store = DS.Store.extend({
 });
 
 App.Router.map(function() {
-  this.resource('articles');
+  this.resource('articles', function(){
+		this.resource('article', {path: ":article_id"});
+	});
 	this.resource('about');
 });
 
