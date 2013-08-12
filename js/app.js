@@ -7,7 +7,7 @@ App.Store = DS.Store.extend({
 
 App.Router.map(function() {
   this.resource('posts', function() {
-		this.resource('post', { path: ':post_id'});
+		this.resource('factoid', { path: ':factoid_id'});
 	});
 	this.resource('about');
 });
@@ -20,11 +20,11 @@ App.IndexRoute = Ember.Route.extend({
 
 App.PostsRoute = Ember.Route.extend({
 	model: function(){
-		return App.Post.find();	
+		return App.Factoid.find();	
 	}
 });
 
-App.PostController = Ember.ObjectController.extend({
+App.FactoidController = Ember.ObjectController.extend({
 	isEditing: false,
 	edit: function(){
 		this.set('isEditing', true);
@@ -35,7 +35,7 @@ App.PostController = Ember.ObjectController.extend({
 	}
 });
 
-App.Post = DS.Model.extend({
+App.Factoid = DS.Model.extend({
 	title: DS.attr('string'),
   author: DS.attr('string'),
   intro: DS.attr('string'),
@@ -46,17 +46,8 @@ App.Post = DS.Model.extend({
 
 });
 
-//var attr = DS.attr;
 
-//App.Post = DS.Model.extend({
-//  title: attr('string'),
-//  author: attr('string'),
-//  intro: attr('string'),
-//  extended: attr('string'),
-//  publishedAt: attr('date')
-//});
-
-App.Post.FIXTURES = [{
+App.Factoid.FIXTURES = [{
   id: 1,
   title: "Cheetahs",
   author: "TroyLynn",

@@ -39,7 +39,7 @@
             </thead>
             {{#each model}}
             <tr><td>
-              {{#linkTo 'post' this}}{{title}} <small class='muted'>by {{author}}</small>{{/linkTo}}
+              {{#linkTo 'factoid' this}}{{title}} <small class='muted'>by {{author}}</small>{{/linkTo}}
             </td></tr>
             {{/each}}
           </table>
@@ -55,9 +55,9 @@
 		<p class="text-warning">Please select a post</p>
 	</script>
 
-  <script type="text/x-handlebars" id="post">
+  <script type="text/x-handlebars" id="factoid">
 	{{#if isEditing}}
-			{{partial 'post/edit'}}
+			{{partial 'factoid/edit'}}
 			<button {{action 'doneEditing'}}>Done</button>
 			{{else}}
 				<button {{action 'edit'}}>Edit</button>
@@ -78,10 +78,14 @@
 			SOURCE: {{markdown source}}
 		</div>
 	</script>
-	<script type="text/x-handlebars" id="post/_edit">
+
+	<script type="text/x-handlebars" id="factoid/_edit">
+		
 		<p> {{view Ember.TextField valueBinding='title'}}</p>
 		<p>{{view Ember.TextArea valueBinding='intro'}}</p>
-		<p>{{view Ember.TextArea valueBinding='extended'}}</p>
+	  <p>{{view Ember.TextArea valueBinding='extended'}}</p>
+		<p>{{view Ember.TextArea valueBinding='quote'}}</p>
+		<p>{{view Ember.TextArea valueBinding='source'}}</p>
 	</script>
 
   <script src="js/libs/jquery-1.9.1.js"></script>
