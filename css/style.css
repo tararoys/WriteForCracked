@@ -2,3 +2,8 @@
 html, body {
     margin: 20px;
 }
+
+.factoid_textarea {
+	width: 600px;
+	height: 100%;
+}
