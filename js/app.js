@@ -52,9 +52,7 @@ App.FactoidView = Ember.View.extend({
   },
 	isEditing: false,
 	edit: function(){
-		alert(this.isEditing);
 		this.set('isEditing', true);
-		alert(this.isEditing);
 	
 	},
 	doneEditing: function(){
