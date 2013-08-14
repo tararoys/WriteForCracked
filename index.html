@@ -62,7 +62,16 @@
 		<ol>
 			{{#each factoids}}
 				<h2>{{title}}</h2>
+			
+		
 				{{#view App.FactoidView}}
+					{{#if view.isEditing}}
+							edit mode
+		 					 <button {{action doneEditing target="view"}}>Done </button>
+							{{else}}
+		  				<button {{action edit target='view'}}> Edit </button>
+					{{/if}}
+
 					<button {{action helloButtonClicked target="view"}}>Hello</button>
 				{{/view}}
 				<p>{{author}}</p>

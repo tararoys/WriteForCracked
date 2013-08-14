@@ -45,10 +45,21 @@ App.ArticleController = Ember.ObjectController.extend({
 	}
 });
 
+
 App.FactoidView = Ember.View.extend({
   helloButtonClicked: function() {
     alert("clicked");
-  }
+  },
+	isEditing: false,
+	edit: function(){
+		alert(this.isEditing);
+		this.set('isEditing', true);
+		alert(this.isEditing);
+	
+	},
+	doneEditing: function(){
+		this.set('isEditing', false);
+	}
 });
 
 App.Article.FIXTURES = [{
