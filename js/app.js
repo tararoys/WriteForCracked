@@ -18,22 +18,26 @@ App.ArticlesRoute = Ember.Route.extend({
 	}
 });
 
+
 App.Article = DS.Model.extend({
-	title: DS.attr('string')	
+	title: DS.attr('string'),
+	factoids: DS.hasMany('App.Factoid')
 });
 
 App.Article.FIXTURES = [{
 		id: 1,
-		title: "Creepy Clone Armies Capable of Untold Havoc"	
+		title: "Creepy Clone Armies Capable of Untold Havoc",
+		factoids: [1,2]	
 	},{
 		id: 2,
-		title: "Weirdest things ever used as ink."
+		title: "Weirdest things ever used as ink.",
+		factoids: []
 		
 	}
 ];
 
-/*
-App.FactoidController = Ember.ObjectController.extend({
+
+App.ArticleController = Ember.ObjectController.extend({
 	isEditing: false,
 	edit: function(){
 		this.set('isEditing', true);
@@ -76,13 +80,13 @@ App.Factoid.FIXTURES = [{
 	source: "No such critter" 
 }];
 
-Ember.Handlebars.registerBoundHelper('date', function(date){
-	return moment(date).fromNow();
+Ember.Handlebars.registerBoundHelper('plagerize', function(author){
+	return "Tara Sneaks In and puts her name on everything!  Booyah!";
 });
-
+/*
 var showdown = new Showdown.converter();
 
 Ember.Handlebars.registerBoundHelper('markdown', function(input){
 	return new Ember.Handlebars.SafeString(showdown.makeHtml(input)); 
-});	
-*/
+});
+*/	
