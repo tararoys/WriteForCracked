@@ -37,9 +37,9 @@
               <tr><th>Recent Articles</th></tr>
             </thead>
 						{{#each model}}
-            <tr><td>
-				    {{#linkTo 'article' this}}		{{title}}{{/linkTo}}
-            </td></tr>
+							<tr><td>
+								{{#linkTo 'article' this}} {{title}}{{/linkTo}}
+							</td></tr>
 						{{/each}}
           </table>
         </div>
@@ -61,7 +61,16 @@
 
 		<ol>
 			{{#each factoids}}
-				<p>Hey</p>
+				<h2>{{title}}</h2>
+				{{#view App.FactoidView}}
+					<button {{action helloButtonClicked target="view"}}>Hello</button>
+				{{/view}}
+				<p>{{author}}</p>
+				<p>{{intro}}</p>
+				<p>{{extended}}</p>
+				<p>{{publishedAt}}</p>
+				<p>{{quote}}</p>
+				<p>{{source}}</p>
 			{{else}}
 				<p>There are no Factoids</p>
 			{{/each}}

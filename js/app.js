@@ -18,34 +18,9 @@ App.ArticlesRoute = Ember.Route.extend({
 	}
 });
 
-
 App.Article = DS.Model.extend({
 	title: DS.attr('string'),
 	factoids: DS.hasMany('App.Factoid')
-});
-
-App.Article.FIXTURES = [{
-		id: 1,
-		title: "Creepy Clone Armies Capable of Untold Havoc",
-		factoids: [1,2]	
-	},{
-		id: 2,
-		title: "Weirdest things ever used as ink.",
-		factoids: []
-		
-	}
-];
-
-
-App.ArticleController = Ember.ObjectController.extend({
-	isEditing: false,
-	edit: function(){
-		this.set('isEditing', true);
-	
-	},
-	doneEditing: function(){
-		this.set('isEditing', false);
-	}
 });
 
 App.Factoid = DS.Model.extend({
@@ -59,6 +34,33 @@ App.Factoid = DS.Model.extend({
 	source: DS.attr('string')
 });
 
+App.ArticleController = Ember.ObjectController.extend({
+	isEditing: false,
+	edit: function(){
+		this.set('isEditing', true);
+	
+	},
+	doneEditing: function(){
+		this.set('isEditing', false);
+	}
+});
+
+App.FactoidView = Ember.View.extend({
+  helloButtonClicked: function() {
+    alert("clicked");
+  }
+});
+
+App.Article.FIXTURES = [{
+		id: 1,
+		title: "Creepy Clone Armies Capable of Untold Havoc",
+		factoids: [1,2]	
+	},{
+		id: 2,
+		title: "Weirdest things ever used as ink.",
+		factoids: []
+	}
+];
 
 App.Factoid.FIXTURES = [{
   id: 1,
